@@ -1,0 +1,98 @@
+import React from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import backImage from './img/backImage.jpg';
+
+class Portada extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            arrayNovedades: props.arrayNovedades,
+            arrayPopulares: props.arrayPopulares
+        }
+    }
+    carouselNovedades = () => {
+        if(this.state.arrayNovedades.length > 0){
+            return(this.carouselMovies(this.state.arrayNovedades))
+        }
+    }
+    carouselPopulares = () => {
+        if(this.state.arrayPopulares.length > 0){
+            return(this.carouselMovies(this.state.arrayPopulares))
+        }
+    }
+    carouselMovies = (array) =>{
+        if(array.length > 0){
+            return (
+            <Carousel>
+                <Carousel.Item>
+                <img id={array[0].id} onClick={this.props.changeDetallePelicula}
+                className="d-block" src={`https://image.tmdb.org/t/p/w400/${array[0].poster_path}`} alt="1" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[1].id} onClick={this.props.changeDetallePelicula}
+                className="d-block" src={`https://image.tmdb.org/t/p/w400/${array[1].poster_path}`} alt="2" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[2].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[2].poster_path}`} alt="3" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[3].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[3].poster_path}`} alt="4" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[4].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[4].poster_path}`} alt="5" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[5].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[5].poster_path}`} alt="6" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[6].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[6].poster_path}`} alt="7" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[7].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[7].poster_path}`} alt="8" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[8].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[8].poster_path}`} alt="9" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+                <Carousel.Item>
+                <img id={array[9].id} onClick={this.props.changeDetallePelicula}
+                className="d-block"src={`https://image.tmdb.org/t/p/w400/${array[9].poster_path}`} alt="10" style={{maxHeight:'45vh', minHeight: '45vh', cursor: 'pointer'}}/>
+                </Carousel.Item>
+            </Carousel>)
+        }   
+    }
+    render(){
+        return(
+            <React.Fragment>
+                <div className="container" style={{minHeight: 30+"vh"}}>
+                    <div className="bg-image text-white" style={ {backgroundImage:`url(${backImage})`,  
+                                                                    backgroundPosition: 'center',
+                                                                    backgroundSize: '100% 100%',
+                                                                    backgroundRepeat: 'no-repeat'} }>
+                        <h2 className="d-flex justify-content-center p-5">Bienvenido a tu web de películas.</h2>
+                        <h4 className="d-flex justify-content-center p-4"> Inserta el nombre de tu película favorita para conocer todos sus detalles</h4>
+                    </div> 
+                </div>
+                <div className="container" style={{minHeight: '53vh'}}>
+                    <div className="row">
+                        <div className="d-inline-block col-md-6">
+                            <h2 className="text-dark d-flex justify-content-center">Novedades</h2>
+                            <div className="d-flex justify-content-center">{this.carouselNovedades()}</div>
+                        </div>
+                        <div className="d-inline-block col-md-6">
+                            <h2 className="text-dark d-flex justify-content-center">Populares</h2>
+                            <div className="d-flex justify-content-center">{this.carouselPopulares()}</div>
+                        </div>
+                    </div>
+                </div> 
+            </React.Fragment>
+        )
+    }
+}
+export default Portada;
