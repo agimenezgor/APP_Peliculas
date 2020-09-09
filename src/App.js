@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Portada from './componentes/Portada.js';
-import Populares from './componentes/Populares.js';
-import Novedades from './componentes/Novedades.js';
-import Buscar from './componentes/Buscar.js';
-import DetallePelicula from './componentes/DetallePelicula.js';
+import Portada from './componentes/Home.js';
+import Populares from './componentes/Popular.js';
+import Novedades from './componentes/Upcoming.js';
+import Buscar from './componentes/Search.js';
+import DetallePelicula from './componentes/MovieDetail.js';
 
 class App extends React.Component {
   constructor(props){

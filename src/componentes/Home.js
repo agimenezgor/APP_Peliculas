@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import backImage from './img/backImage.jpg';
 
-class Portada extends React.Component {
+class Home extends React.Component {
     carouselNovedades = () => {
         if(this.props.arrayNovedades.length > 0){
             return(this.carouselMovies(this.props.arrayNovedades))
@@ -88,4 +88,4 @@ class Portada extends React.Component {
         )
     }
 }
-export default Portada;
+export default Home;

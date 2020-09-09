@@ -1,7 +1,7 @@
 import React from 'react';
 import Moviegrid from './MovieGrid.js';
 
-class Buscar extends React.Component {
+class Search extends React.Component {
     render() {
         if(this.props.arrayBuscar.length === 0){
             return(<div className="bg-danger d-flex flex-column justify-content-center align-items-center">
@@ -13,4 +13,4 @@ class Buscar extends React.Component {
         }
     }
 }
-export default Buscar;
+export default Search;

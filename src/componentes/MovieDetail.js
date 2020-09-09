@@ -1,6 +1,6 @@
 import React from 'react';
 
-class DetallePelicula extends React.Component {
+class MovieDetail extends React.Component {
     homePage = () =>{
         if(this.props.pelicula.homepage !== ''){
             window.open(this.props.pelicula.homepage)
@@ -46,4 +46,4 @@ class DetallePelicula extends React.Component {
         )
     }
 }
-export default DetallePelicula;
+export default MovieDetail;
