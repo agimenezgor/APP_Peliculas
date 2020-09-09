@@ -41,7 +41,7 @@ class App extends React.Component {
         if(this.state.main === 'home'){return(<Home changeMovieDetail={this.changeMovieDetail} arrayPopular={this.state.arrayPopular} arrayUpcoming={this.state.arrayUpcoming}/>)
         }else if(this.state.main === 'Popular'){return(<Popular changeMovieDetail={this.changeMovieDetail} arrayPopular={this.state.arrayPopular}/>)
         }else if(this.state.main === 'Upcoming'){return(<Upcoming changeMovieDetail={this.changeMovieDetail} arrayUpcoming={this.state.arrayUpcoming}/>)
-        }else if(this.state.main === 'detalle'){return(<MovieDetail movie={this.state.movie}/>)
+        }else if(this.state.main === 'detail'){return(<MovieDetail movie={this.state.movie}/>)
         }else if(this.state.arraySearch !== null && this.state.main === 'Search'){
           return(<Search changeMovieDetail={this.changeMovieDetail} arraySearch={this.state.arraySearch}/>)
         }else{this.setState({main: 'home'})}
@@ -63,7 +63,7 @@ class App extends React.Component {
     fetch(`https://api.themoviedb.org/3/movie/${e.target.id}?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES`)
         .then(res=>res.json())
         .then(res=>{
-            this.setState({movie: res, main: 'detalle'});
+            this.setState({movie: res, main: 'detail'});
         })
         .catch(error=>console.error(error))
   }
@@ -95,7 +95,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderHeader()}
-        <main className="bg-warning" style={{minHeight: "83vh"}}>
+        <main className="bg-info" style={{minHeight: "83vh"}}>
           {this.mainRender()}
         </main>
         {this.renderFooter()}
