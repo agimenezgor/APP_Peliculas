@@ -8,22 +8,22 @@ class MovieDetail extends React.Component {
     }
     componentDidMount = () => {
         let arrayGenres =  this.props.movie.genres;
-        let genres = 'Géneros: '
+        let generos = 'Géneros: '
         for(let i = 0; i < this.props.movie.genres.length; i++){
-            genres += ' '
-            genres += arrayGenres[i].name;
+            generos += ' '
+            generos += arrayGenres[i].name;
             if(i !== this.props.movie.genres.length - 1){
-                genres += ','
+                generos += ','
             }
         }
-        this.setState({genres: genres})
+        this.setState({genres: generos})
     }
     rendermovie = () =>{
         const movie = this.props.movie;
         const genres = this.props.genres;
         return (
             <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
-                <div className="bg-info p-4 rounded-lg" style={{maxHeight: '75vh', minHeight: '75vh'}}>
+                <div className="bg-info p-4 rounded-lg" style={{minHeight: '75vh'}}>
                     <div className="d-flex mr-5">
                         <img className="d-block ml-5" src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} alt="Imagen no encontrada" style={{maxHeight:'40vh', minHeight: '40vh'}}/>
                         <div className="w-100 d-flex flex-column p-3 align-items-end text-white">
