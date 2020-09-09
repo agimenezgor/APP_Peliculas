@@ -1,33 +1,26 @@
 import React from 'react';
 
 class DetallePelicula extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            pelicula: props.pelicula,
-            genres: ''
-        }
-    }
     homePage = () =>{
-        if(this.state.pelicula.homepage !== ''){
-            window.open(this.state.pelicula.homepage)
+        if(this.props.pelicula.homepage !== ''){
+            window.open(this.props.pelicula.homepage)
         }
     }
     componentDidMount = () => {
-        let arrayGenres =  this.state.pelicula.genres;
+        let arrayGenres =  this.props.pelicula.genres;
         let generos = 'Géneros: '
-        for(let i = 0; i < this.state.pelicula.genres.length; i++){
+        for(let i = 0; i < this.props.pelicula.genres.length; i++){
             generos += ' '
             generos += arrayGenres[i].name;
-            if(i !== this.state.pelicula.genres.length - 1){
+            if(i !== this.props.pelicula.genres.length - 1){
                 generos += ','
             }
         }
         this.setState({genres: generos})
     }
     renderPelicula = () =>{
-        const movie = this.state.pelicula;
-        const genres = this.state.genres;
+        const movie = this.props.pelicula;
+        const genres = this.props.genres;
         return (
             <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
                 <div className="bg-info p-4 rounded-lg" style={{maxHeight: '75vh', minHeight: '75vh'}}>

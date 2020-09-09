@@ -3,21 +3,14 @@ import Carousel from 'react-bootstrap/Carousel';
 import backImage from './img/backImage.jpg';
 
 class Portada extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            arrayNovedades: props.arrayNovedades,
-            arrayPopulares: props.arrayPopulares
-        }
-    }
     carouselNovedades = () => {
-        if(this.state.arrayNovedades.length > 0){
-            return(this.carouselMovies(this.state.arrayNovedades))
+        if(this.props.arrayNovedades.length > 0){
+            return(this.carouselMovies(this.props.arrayNovedades))
         }
     }
     carouselPopulares = () => {
-        if(this.state.arrayPopulares.length > 0){
-            return(this.carouselMovies(this.state.arrayPopulares))
+        if(this.props.arrayPopulares.length > 0){
+            return(this.carouselMovies(this.props.arrayPopulares))
         }
     }
     carouselMovies = (array) =>{
