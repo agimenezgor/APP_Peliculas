@@ -25,7 +25,7 @@ class App extends React.Component {
     .then(res=>res.json())
     .then(res =>{
         let arrayResults = res.results;;
-        arrayResults.sort((mov1, mov2)=>{return mov2.popularity - mov1.popularity}); 
+        arrayResults.sort((mov1, mov2)=>mov2.popularity - mov1.popularity); 
         this.setState({arrayUpcoming: arrayResults});
     })
     .catch(error=>console.error(error))
@@ -33,7 +33,7 @@ class App extends React.Component {
     .then(res=>res.json())
     .then(res =>{
         let arrayResults = res.results;;
-        arrayResults.sort((mov1, mov2)=>{return mov2.popularity - mov1.popularity}); 
+        arrayResults.sort((mov1, mov2)=>mov2.popularity - mov1.popularity); 
         this.setState({arrayPopular: arrayResults});
     })
     .catch(error=>console.error(error))
