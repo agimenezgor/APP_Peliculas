@@ -75,11 +75,11 @@ class Home extends React.Component {
                 <div className="container" style={{minHeight: '53vh'}}>
                     <div className="row">
                         <div className="d-inline-block col-md-6">
-                            <h2 className="text-dark d-flex justify-content-center">Upcoming</h2>
+                            <h2 className="text-white d-flex justify-content-center">Upcoming</h2>
                             <div className="d-flex justify-content-center">{this.carouselUpcoming()}</div>
                         </div>
                         <div className="d-inline-block col-md-6">
-                            <h2 className="text-dark d-flex justify-content-center">Popular</h2>
+                            <h2 className="text-white d-flex justify-content-center">Popular</h2>
                             <div className="d-flex justify-content-center">{this.carouselPopular()}</div>
                         </div>
                     </div>
