@@ -5,6 +5,8 @@ import Popular from './componentes/Popular.js';
 import Upcoming from './componentes/Upcoming.js';
 import Search from './componentes/Search.js';
 import MovieDetail from './componentes/MovieDetail.js';
+import RenderHeader from './componentes/renderHeader';
+import RenderFooter from './componentes/renderFooter';
 
 class App extends React.Component {
   constructor(props){
@@ -67,38 +69,14 @@ class App extends React.Component {
         })
         .catch(error=>console.error(error))
   }
-  renderHeader = () => {
-    return (
-      <header className="container-fluid bg-secondary p-3 sticky-top" style={{minHeight: "10vh"}}>
-        <div className="m-0 row d-flex align-items-center w-100">
-          <button className="col-md-4 d-flex justify-content-center btn btn-outline-info" onClick={this.changeHome}><h1>APP Películas</h1></button>
-          <div className="col-md-4 d-flex justify-content-center">
-            <input className="w-100 rounded-lg input-group-text" type="text" id="Search" name="textSearch" value={this.state.textSearch} onChange={this.handleChange} placeholder="Nombre de la película que estás buscando..."></input>
-            <button className="btn btn-success" onClick={this.changeSearch}>Buscar</button>
-          </div>
-          <div className="col-md-4 d-flex justify-content-center"> 
-            <button className="btn btn-info mr-2" onClick={this.changePopular}>Películas Popular</button>
-            <button className="btn btn-info ml-2" onClick={this.changeUpcoming}>Últimas películas</button>
-          </div>
-        </div>
-      </header>)
-  }
-  renderFooter = () => {
-    return (
-      <footer className="bg-secondary d-flex justify-content-center align-items-center" style={{minHeight: "7vh"}}>
-        <div className="text-warning">
-          <h3>Copyright © 2020 Álvaro Giménez - Design: Álvaro Giménez</h3>
-        </div>
-      </footer>)
-  }
   render(){
     return (
       <div className="App">
-        {this.renderHeader()}
+        <RenderHeader changeHome={this.changeHome} textSearch ={this.state.textSearch} handleChange={this.handleChange} changeSearch={this.changeSearch} changePopular={this.changePopular} changeUpcoming={this.changeUpcoming}/>
         <main className="bg-info" style={{minHeight: "83vh"}}>
           {this.mainRender()}
         </main>
-        {this.renderFooter()}
+        <RenderFooter/>
       </div>
     );
   }
