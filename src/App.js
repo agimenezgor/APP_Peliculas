@@ -56,8 +56,7 @@ class App extends React.Component {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.textSearch}&api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=1&include_adult=false`)
     .then(res=>res.json())
     .then(res =>{
-        this.setState({arraySearch: res.results});
-        this.setState({main: 'Search'});
+        this.setState({arraySearch: res.results, main: 'Search'});
     })
   } 
   handleChange = (event) => {this.setState({[event.target.name]:event.target.value});}
