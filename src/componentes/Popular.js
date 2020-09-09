@@ -4,7 +4,7 @@ import Moviegrid from './MovieGrid.js';
 class Popular extends React.Component {
     render(){
         return(
-            <div><Moviegrid changeDetallePelicula={this.props.changeDetallePelicula} renderArray={this.props.arrayPopulares}/></div>
+            <div><Moviegrid changeMovieDetail={this.props.changeMovieDetail} renderArray={this.props.arrayPopular}/></div>
         )
     }
 }

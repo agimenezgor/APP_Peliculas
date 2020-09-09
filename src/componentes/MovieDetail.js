@@ -2,24 +2,24 @@ import React from 'react';
 
 class MovieDetail extends React.Component {
     homePage = () =>{
-        if(this.props.pelicula.homepage !== ''){
-            window.open(this.props.pelicula.homepage)
+        if(this.props.movie.homepage !== ''){
+            window.open(this.props.movie.homepage)
         }
     }
     componentDidMount = () => {
-        let arrayGenres =  this.props.pelicula.genres;
-        let generos = 'Géneros: '
-        for(let i = 0; i < this.props.pelicula.genres.length; i++){
-            generos += ' '
-            generos += arrayGenres[i].name;
-            if(i !== this.props.pelicula.genres.length - 1){
-                generos += ','
+        let arrayGenres =  this.props.movie.genres;
+        let genres = 'Géneros: '
+        for(let i = 0; i < this.props.movie.genres.length; i++){
+            genres += ' '
+            genres += arrayGenres[i].name;
+            if(i !== this.props.movie.genres.length - 1){
+                genres += ','
             }
         }
-        this.setState({genres: generos})
+        this.setState({genres: genres})
     }
-    renderPelicula = () =>{
-        const movie = this.props.pelicula;
+    rendermovie = () =>{
+        const movie = this.props.movie;
         const genres = this.props.genres;
         return (
             <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
@@ -41,7 +41,7 @@ class MovieDetail extends React.Component {
     render() {
         return(
             <div>
-                {this.renderPelicula()}
+                {this.rendermovie()}
             </div>
         )
     }
