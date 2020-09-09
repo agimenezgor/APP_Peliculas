@@ -1,26 +1,23 @@
 import React from 'react';
 
 class MovieDetail extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={
+          genres: ''}
+    }
+    
     homePage = () =>{
         if(this.props.movie.homepage !== ''){
             window.open(this.props.movie.homepage)
         }
     }
     componentDidMount = () => {
-        let arrayGenres =  this.props.movie.genres;
-        let generos = 'Géneros: '
-        for(let i = 0; i < this.props.movie.genres.length; i++){
-            generos += ' '
-            generos += arrayGenres[i].name;
-            if(i !== this.props.movie.genres.length - 1){
-                generos += ','
-            }
-        }
+        let generos = 'Géneros: ' + this.props.movie.genres.map(genre=>genre.name).join(', ');
         this.setState({genres: generos})
     }
     rendermovie = () =>{
         const movie = this.props.movie;
-        const genres = this.props.genres;
         return (
             <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
                 <div className="bg-info p-4 rounded-lg" style={{minHeight: '75vh'}}>
@@ -30,7 +27,7 @@ class MovieDetail extends React.Component {
                             <h2 className="mt-5">{movie.title} ({movie.original_title})</h2>
                             <h5 className="mt-5">Fecha de lanzamiento: {movie.release_date}</h5>
                             <h3 className="mt-5">Puntuación: {movie.vote_average}</h3>
-                            <div className="mt-3">{genres}</div>
+                            <div className="mt-3">{this.state.genres}</div>
                         </div>
                     </div>
                     <h4 className="d-flex align-items-center text-white" style={{maxHeight: '30vh', minHeight: '30vh'}}>{movie.overview}</h4>
