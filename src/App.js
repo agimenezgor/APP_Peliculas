@@ -21,23 +21,17 @@ class App extends React.Component {
     }
   }
   componentWillMount() {
-    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES')
-    .then(res=>res.json())
-    .then(res =>{
-        let arrayResults = res.results;;
-        arrayResults.sort((mov1, mov2)=>mov2.popularity - mov1.popularity); 
-        this.setState({arrayUpcoming: arrayResults});
-    })
-    .catch(error=>console.error(error))
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES')
-    .then(res=>res.json())
-    .then(res =>{
-        let arrayResults = res.results;;
-        arrayResults.sort((mov1, mov2)=>mov2.popularity - mov1.popularity); 
-        this.setState({arrayPopular: arrayResults});
-    })
-    .catch(error=>console.error(error))
-  }
+    const array = ['upcoming', 'popular'];
+    array.forEach(element => {
+      fetch(`https://api.themoviedb.org/3/movie/${element}?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES`)
+      .then(res=>res.json())
+      .then(res =>{
+          if(element === 'upcoming'){this.setState({arrayUpcoming: res.results.sort((mov1, mov2)=>mov2.popularity - mov1.popularity)});
+          }else{this.setState({arrayPopular: res.results.sort((mov1, mov2)=>mov2.popularity - mov1.popularity)});}
+      })
+      .catch(error=>console.error(error))
+    });
+  } 
   mainRender = () => {
     if(this.state.arrayUpcoming.length > 0 && this.state.arrayPopular.length > 0){
         if(this.state.main === 'home'){return(<Home changeMovieDetail={this.changeMovieDetail} arrayPopular={this.state.arrayPopular} arrayUpcoming={this.state.arrayUpcoming}/>)
