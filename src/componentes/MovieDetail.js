@@ -4,22 +4,25 @@ class MovieDetail extends React.Component {
     constructor(props){
         super(props);
         this.state={
-          genres: ''}
+            genres: ''
+        }
     }
-    
     homePage = () =>{
         if(this.props.movie.homepage !== ''){
             window.open(this.props.movie.homepage)
         }
     }
     componentDidMount = () => {
-        let generos = 'Géneros: ' + this.props.movie.genres.map(genre=>genre.name).join(', ');
-        this.setState({genres: generos})
+        if(this.props.movie.genres){
+             let generos = 'Géneros: ' + this.props.movie.genres.map(genre=>genre.name).join(', ');
+            this.setState({genres: generos});
+        }
     }
-    rendermovie = () =>{
+    rendermovie () {
         const movie = this.props.movie;
         return (
-            <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
+            <React.Fragment>
+                <div className="pt-4 container" onClick={this.homePage} style={{cursor:'pointer'}}>
                 <div className="bg-info p-4 rounded-lg" style={{minHeight: '75vh'}}>
                     <div className="d-flex mr-5">
                         <img className="d-block ml-5" src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} alt="Imagen no encontrada" style={{maxHeight:'40vh', minHeight: '40vh'}}/>
@@ -33,7 +36,8 @@ class MovieDetail extends React.Component {
                     <h4 className="d-flex align-items-center text-white" style={{maxHeight: '30vh', minHeight: '30vh'}}>{movie.overview}</h4>
                 </div> 
             </div>
-        )
+            </React.Fragment>
+        ) 
     }
     render() {
         return(
@@ -41,6 +45,7 @@ class MovieDetail extends React.Component {
                 {this.rendermovie()}
             </div>
         )
+
     }
 }
 export default MovieDetail;

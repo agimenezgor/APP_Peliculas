@@ -11,10 +11,10 @@ class AppRouter extends React.Component {
         return (
             <Switch>
                 <Route exact path="/" render={props =><Home changeMovieDetail={this.props.changeMovieDetail} arrayPopular={this.props.arrayPopular} arrayUpcoming={this.props.arrayUpcoming}/>}/>
-                <Route path="/populares" render={props =><Popular changeMovieDetail={this.props.changeMovieDetail} arrayPopular={this.props.arrayPopular}/>}/>
-                <Route path="/novedades" render={props =><Upcoming changeMovieDetail={this.props.changeMovieDetail} arrayUpcoming={this.props.arrayUpcoming}/>}/>
-                <Route path="/pelicula" render={props =><MovieDetail movie={this.props.movie}/>}/>
-                <Route path="/buscar" render={props =><Search changeMovieDetail={this.props.changeMovieDetail} arraySearch={this.props.arraySearch}/>}/> 
+                <Route exact path="/populares" render={props =><Popular changeMovieDetail={this.props.changeMovieDetail} arrayPopular={this.props.arrayPopular}/>}/>
+                <Route exact path="/novedades" render={props =><Upcoming changeMovieDetail={this.props.changeMovieDetail} arrayUpcoming={this.props.arrayUpcoming}/>}/>
+                <Route exact path="/pelicula" render={props =><MovieDetail movie={this.props.movie}/>}/>
+                <Route exact path="/buscar" render={props =><Search changeMovieDetail={this.props.changeMovieDetail} arraySearch={this.props.arraySearch}/>}/> 
             </Switch>
         )
     }
