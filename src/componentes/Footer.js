@@ -1,6 +1,6 @@
 import React from 'react';
 
-class RenderFooter extends React.Component {
+class Footer extends React.Component {
     render(){
         return (
             <footer className="bg-secondary d-flex justify-content-center align-items-center" style={{minHeight: "7vh"}}>
@@ -10,4 +10,4 @@ class RenderFooter extends React.Component {
             </footer>)
     }
 }
-export default RenderFooter;
+export default Footer;

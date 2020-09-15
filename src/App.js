@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RenderHeader from './componentes/renderHeader';
-import RenderFooter from './componentes/renderFooter';
+import Header from './componentes/Header';
+import Footer from './componentes/Footer';
 import AppRouter from './componentes/AppRouter';
 
 class App extends React.Component {
@@ -43,11 +43,11 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <RenderHeader textSearch ={this.state.textSearch} handleChange={this.handleChange} movieSearch ={this.movieSearch}/>
+        <Header textSearch ={this.state.textSearch} handleChange={this.handleChange} movieSearch ={this.movieSearch}/>
         <main className="bg-info" style={{minHeight: "83vh"}}>
           <AppRouter changeMovieDetail={this.changeMovieDetail} arrayPopular={this.state.arrayPopular} arrayUpcoming={this.state.arrayUpcoming} movie={this.state.movie} arraySearch={this.state.arraySearch}/>
         </main>
-        <RenderFooter/>
+        <Footer/>
       </div>
     );
   }

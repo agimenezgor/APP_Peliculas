@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class RenderHeader extends React.Component {
+class Header extends React.Component {
     render(){
         return (
             <header className="container-fluid bg-secondary p-3 sticky-top" style={{minHeight: "10vh"}}>
@@ -21,4 +21,4 @@ class RenderHeader extends React.Component {
             </header>)
     }
 }
-export default RenderHeader;
+export default Header;
